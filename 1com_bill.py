@@ -13,10 +13,11 @@ def bill_count(user_amt,lst_money):
             count=0
     money_count.append((lst_money[i],count))
     return money_count
+
 if __name__ == '__main__':
     test=0
     while test!=1:
-        user_amt,lst_money=int(input()),list(map(int,input().split()))
+        user_amt,lst_money=int(input()),list(map(int,input().split()))#lst_money is get from the user in single line(like 20 10 1)
         if user_amt>0 and len([i for i in lst_money if i>0])!=0:
             print("The Minimum count of the List of Money Bills",sum([i[1]for i in bill_count(user_amt,lst_money)]))
             test=1
