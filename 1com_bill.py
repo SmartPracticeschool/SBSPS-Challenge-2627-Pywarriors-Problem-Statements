@@ -19,7 +19,9 @@ if __name__ == '__main__':
     while test!=1:
         user_amt,lst_money=int(input()),list(map(int,input().split()))#lst_money is get from the user in single line(like 20 10 1)
         if user_amt>0 and len([i for i in lst_money if i>0])!=0:
-            print("The Minimum count of the List of Money Bills",sum([i[1]for i in bill_count(user_amt,lst_money)]))
+            bill=bill_count(user_amt,lst_money)
+            print("We require"," and ".join(str(str(i[1])+"  "+str(i[0])+"Rs bill")for i in bill if i[1]!=0),"to equal Rs "+str(user_amt))
+            print("Therefore, Minimum Count Money Bills is"," + ".join(str(i[0])for i in bill if i[1]!=0),sum([i[1]for i in bill if i[1]!=0]))
             test=1
         else:
             print("The Amount and The List of Money bills should be a positive value")
